@@ -11,13 +11,14 @@ function App() {
 
   const [songs, setSongs] = useState([]);
   const [nextUrl, setNextUrl] = useState(null);
+  const [searching, setSearching] = useState(false);
 
   return (
     <HashRouter>
       <div className="App">
         <Suspense fallback={<h1>Loading...</h1>}>
           <Context.Provider value={{
-            songs, setSongs, nextUrl, setNextUrl
+            songs, setSongs, nextUrl, setNextUrl, searching, setSearching
           }}>
             <Routes>
 

@@ -5,13 +5,14 @@ const Song = lazy(() => import('./Song').then(module => ({ default: module.Song 
 
 export const SongsDisplay = () => {
 
-    const { songs } = useContext(Context);
+    const { songs, searching } = useContext(Context);
 
     return (<div id="songsDisplay">
         <Suspense fallback={<h1>Loading...</h1>}>
-        {songs.length ?
+        {!searching ? (songs.length ?
             songs.map((song,i) => <Song key={i} song={song}/>)
-        : "Search for songs to get started!"}
+        : "Search for songs to get started!")
+        :"Loading..."}
         </Suspense>
     </div>)
 }
