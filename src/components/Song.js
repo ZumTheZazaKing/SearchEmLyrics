@@ -12,8 +12,8 @@ export const Song = (props) => {
         navigate(`/lyrics/${title}/${name}`)
     }
 
-    return (<div onClick={toLyrics}>
-        <img width={50} height={50} src={cover} alt={title}/>
-        <h2>{title} - {name}</h2>
+    return (<div className="song" onClick={toLyrics}>
+        <img src={cover} alt={title}/>
+        <p>{title} - {name}</p>
     </div>)
 }

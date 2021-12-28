@@ -1,9 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap');
+$fontForSongs:'Nunito', sans-serif;
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:transparent;border-radius:0px}
+::-webkit-scrollbar-thumb{background:rgba($color:#ababab, $alpha:0.5);border-radius:0px}
+::-webkit-scrollbar-thumb:hover{background:rgba($color:#ababab, $alpha:0.7);border-radius:0px}
+
+#backToTop{
+    background-color: rgb(28, 81, 226);
+    color: white;
+    border-radius: 50%;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.loading{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($color:#ababab, $alpha:0.5);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 body{
-    background-color: burlywood;
+    background-color: white;
+    overflow-y: overlay;
+
+    #Main{
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='2000' height='1400' preserveAspectRatio='none' viewBox='0 0 2000 1400'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1190%26quot%3b)' fill='none'%3e%3crect width='2000' height='1400' x='0' y='0' fill='url(%23SvgjsLinearGradient1191)'%3e%3c/rect%3e%3cg transform='translate(0%2c 0)' stroke-linecap='round'%3e%3cpath d='M362 642.12 L362 757.88' stroke-width='33' stroke='rgba(205%2c 125%2c 40%2c 1)'%3e%3c/path%3e%3cpath d='M406 431.38 L406 968.62' stroke-width='33' stroke='rgba(205%2c 125%2c 40%2c 1)'%3e%3c/path%3e%3cpath d='M450 514.96 L450 885.04' stroke-width='33' stroke='rgba(15%2c 115%2c 222%2c 1)'%3e%3c/path%3e%3cpath d='M494 645.5 L494 754.5' stroke-width='33' stroke='rgba(15%2c 115%2c 222%2c 1)'%3e%3c/path%3e%3cpath d='M538 612.53 L538 787.47' stroke-width='33' stroke='rgba(15%2c 115%2c 222%2c 1)'%3e%3c/path%3e%3cpath d='M582 634.66 L582 765.34' stroke-width='33' stroke='rgba(205%2c 125%2c 40%2c 1)'%3e%3c/path%3e%3cpath d='M626 510.4 L626 889.6' stroke-width='33' stroke='rgba(15%2c 115%2c 222%2c 1)'%3e%3c/path%3e%3cpath d='M670 428.34 L670 971.66' stroke-width='33' stroke='rgba(15%2c 115%2c 222%2c 1)'%3e%3c/path%3e%3cpath d='M714 300.17 L714 1099.83' stroke-width='33' stroke='rgba(205%2c 125%2c 40%2c 1)'%3e%3c/path%3e%3cpath d='M758 377.31 L758 1022.69' stroke-width='33' stroke='rgba(205%2c 125%2c 40%2c 1)'%3e%3c/path%3e%3cpath d='M802 369.06 L802 1030.94' stroke-width='33' stroke='rgba(15%2c 115%2c 222%2c 1)'%3e%3c/path%3e%3cpath d='M846 355.85 L846 1044.15' stroke-width='33' stroke='rgba(205%2c 125%2c 40%2c 1)'%3e%3c/path%3e%3cpath d='M890 340.92 L890 1059.08' stroke-width='33' stroke='rgba(205%2c 125%2c 40%2c 1)'%3e%3c/path%3e%3cpath d='M934 533.9 L934 866.1' stroke-width='33' stroke='rgba(205%2c 125%2c 40%2c 1)'%3e%3c/path%3e%3cpath d='M978 490.09 L978 909.91' stroke-width='33' stroke='rgba(205%2c 125%2c 40%2c 1)'%3e%3c/path%3e%3cpath d='M1022 343.82 L1022 1056.18' stroke-width='33' stroke='rgba(15%2c 115%2c 222%2c 1)'%3e%3c/path%3e%3cpath d='M1066 323.63 L1066 1076.37' stroke-width='33' stroke='rgba(205%2c 125%2c 40%2c 1)'%3e%3c/path%3e%3cpath d='M1110 524.34 L1110 875.66' stroke-width='33' stroke='rgba(15%2c 115%2c 222%2c 1)'%3e%3c/path%3e%3cpath d='M1154 448.1 L1154 951.9' stroke-width='33' stroke='rgba(205%2c 125%2c 40%2c 1)'%3e%3c/path%3e%3cpath d='M1198 332.53 L1198 1067.47' stroke-width='33' stroke='rgba(15%2c 115%2c 222%2c 1)'%3e%3c/path%3e%3cpath d='M1242 431 L1242 969' stroke-width='33' stroke='rgba(205%2c 125%2c 40%2c 1)'%3e%3c/path%3e%3cpath d='M1286 509.3 L1286 890.7' stroke-width='33' stroke='rgba(15%2c 115%2c 222%2c 1)'%3e%3c/path%3e%3cpath d='M1330 318.19 L1330 1081.81' stroke-width='33' stroke='rgba(15%2c 115%2c 222%2c 1)'%3e%3c/path%3e%3cpath d='M1374 445.78 L1374 954.22' stroke-width='33' stroke='rgba(15%2c 115%2c 222%2c 1)'%3e%3c/path%3e%3cpath d='M1418 456.94 L1418 943.07' stroke-width='33' stroke='rgba(205%2c 125%2c 40%2c 1)'%3e%3c/path%3e%3cpath d='M1462 513.15 L1462 886.85' stroke-width='33' stroke='rgba(15%2c 115%2c 222%2c 1)'%3e%3c/path%3e%3cpath d='M1506 451.88 L1506 948.13' stroke-width='33' stroke='rgba(15%2c 115%2c 222%2c 1)'%3e%3c/path%3e%3cpath d='M1550 282.3 L1550 1117.7' stroke-width='33' stroke='rgba(205%2c 125%2c 40%2c 1)'%3e%3c/path%3e%3cpath d='M1594 475.26 L1594 924.74' stroke-width='33' stroke='rgba(205%2c 125%2c 40%2c 1)'%3e%3c/path%3e%3cpath d='M1638 500.46 L1638 899.54' stroke-width='33' stroke='rgba(15%2c 115%2c 222%2c 1)'%3e%3c/path%3e%3c/g%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1190'%3e%3crect width='2000' height='1400' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='7.5%25' y1='-10.71%25' x2='92.5%25' y2='110.71%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1191'%3e%3cstop stop-color='%230e2a47' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(19%2c 77%2c 151%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+        background-position:center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        #header{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-family: monospace;
+            height: 100vh;
+            width: 100%;
+            background-color: rgba($color: #000000, $alpha: 0.3);
+            color: white;
+        }
+    }
+
+    #body{
+        background-color: #f5f5f5;
+        font-family: $fontForSongs;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        #songsDisplay{
+            width: 70%;
+            .song{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin-bottom: 10px;
+                img{
+                    width: auto;
+                    height: auto;
+                }
+                p{
+                    margin-left: 10px;
+                    font-size: 24px;
+                    font-weight: bold;
+                }
+            }
+            .song:hover{
+                background-color: rgba($color: #707070, $alpha:0.3);
+                cursor: pointer;
+            }
+            .song:first-child{
+                margin-top: 25px;
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 500px){
+    #songsDisplay{
+        width: 100% !important; 
+    }
 }

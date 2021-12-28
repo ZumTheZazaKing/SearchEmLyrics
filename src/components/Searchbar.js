@@ -1,10 +1,14 @@
 import { toast } from 'react-toastify';
 import { Context } from '../context';
 import { useContext } from 'react';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
 
 export const Searchbar = () => {
 
-    const { setSongs, setNextUrl, setSearching } = useContext(Context);
+    const { setSongs, setNextUrl, setSearching, dummy } = useContext(Context);
 
     const apiURL = 'https://api.lyrics.ovh';
 
@@ -21,13 +25,32 @@ export const Searchbar = () => {
             setSongs(data.data)
             setNextUrl(data.next)
             setSearching(false);
+            dummy.current.scrollIntoView({behavior: 'smooth'});
         })
     }
 
     return (<div id="searchbar">
         <form onSubmit={e => handleSearch(e)}>
-            <input type="text" name="query" autoComplete='off' autoFocus/>
-            <input type="submit" value="Search"/>
+            <TextField
+                placeholder="Search for song/artist"
+                margin="dense"
+                type="text"
+                fullWidth
+                variant="standard"
+                name='query'
+                autoComplete='off'
+                autoFocus
+                sx={{input:{color:"white", padding:"10px"}}}
+                InputProps={{
+                    startAdornment: (
+                        <InputAdornment position="start">
+                            <IconButton type="submit">
+                                <SearchIcon sx={{color:"white"}} />
+                            </IconButton>
+                        </InputAdornment>
+                    )
+                }}
+            />
         </form>
     </div>)
 }

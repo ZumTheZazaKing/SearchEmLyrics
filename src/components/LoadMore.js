@@ -1,5 +1,6 @@
 import { Context } from "../context"
 import { useContext } from "react"
+import Button from '@mui/material/Button';
 
 export const LoadMore = () => {
 
@@ -17,7 +18,7 @@ export const LoadMore = () => {
         })
     }
 
-    return (<div id="loadMore" onClick={(e) => handleLoadMore(e)}>
-        <button>Load More</button>
+    return (<div id="loadMore">
+        <Button onClick={(e) => handleLoadMore(e)}>Load More</Button>
     </div>)
 }
