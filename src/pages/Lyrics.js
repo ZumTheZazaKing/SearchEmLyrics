@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Button from '@mui/material/Button';
 
 export const Lyrics = () => {
 
@@ -20,8 +21,13 @@ export const Lyrics = () => {
     },[song, artist])
 
     return (<div id="Lyrics">
-        <button onClick={() => navigate("/")}>Back</button>
+        <br/>
+        <Button onClick={() => navigate("/")}>MAIN PAGE</Button>
+        <br/>
         <h2>{song} - {artist}</h2>
-        <p style={{whiteSpace:"pre-wrap"}}>{lyrics}</p>
+        <br/>
+        <p style={{whiteSpace:"pre-wrap"}}>
+            {lyrics ? lyrics : "Loading..."}
+        </p>
     </div>)
 }

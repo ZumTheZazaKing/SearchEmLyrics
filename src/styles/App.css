@@ -46,7 +46,7 @@
 }
 
 body {
-  background-color: white;
+  background-color: #f5f5f5;
   overflow-y: overlay;
 }
 body #Main {
@@ -67,7 +67,7 @@ body #Main #header {
   background-color: rgba(0, 0, 0, 0.3);
   color: white;
 }
-body #body {
+body #Main #body {
   background-color: #f5f5f5;
   font-family: "Nunito", sans-serif;
   display: flex;
@@ -75,30 +75,39 @@ body #body {
   justify-content: center;
   flex-direction: column;
 }
-body #body #songsDisplay {
+body #Main #body #songsDisplay {
   width: 70%;
 }
-body #body #songsDisplay .song {
+body #Main #body #songsDisplay .song {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 10px;
 }
-body #body #songsDisplay .song img {
+body #Main #body #songsDisplay .song img {
   width: auto;
   height: auto;
 }
-body #body #songsDisplay .song p {
+body #Main #body #songsDisplay .song p {
   margin-left: 10px;
   font-size: 24px;
   font-weight: bold;
 }
-body #body #songsDisplay .song:hover {
+body #Main #body #songsDisplay .song:hover {
   background-color: rgba(112, 112, 112, 0.3);
   cursor: pointer;
 }
-body #body #songsDisplay .song:first-child {
+body #Main #body #songsDisplay .song:first-child {
   margin-top: 25px;
+}
+body #Lyrics {
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Nunito", sans-serif;
+  margin-bottom: 40px;
 }
 
 @media only screen and (max-width: 500px) {

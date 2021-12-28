@@ -32,7 +32,7 @@ export const Searchbar = () => {
     return (<div id="searchbar">
         <form onSubmit={e => handleSearch(e)}>
             <TextField
-                placeholder="Search for song/artist"
+                placeholder="Search for a song/artist"
                 margin="dense"
                 type="text"
                 fullWidth
